@@ -1,0 +1,4 @@
+﻿can_defensively_join_holy_war = {
+	NOT = { is_at_war_with = scope:defender }
+	any_neighboring_top_liege_realm_owner = { this = scope:defender }
+}

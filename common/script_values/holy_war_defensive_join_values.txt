@@ -1,0 +1,28 @@
+﻿holy_war_defensive_join_value = {
+	add = {
+		desc = "BASE_VALUE"
+		value = 1
+		format = "BASE_VALUE_FORMAT"
+	}
+	if = {
+		limit = {
+			OR = {
+				is_spouse_of = scope:defender
+				is_close_or_extended_family_of = scope:defender
+				has_relation_lover = scope:defender
+				has_relation_friend = scope:defender
+				has_secret_relation_lover = scope:defender
+				has_relation_soulmate = scope:defender
+				has_relation_best_friend = scope:defender
+				is_parent_of = scope:defender
+			}
+		}
+		add = { value = 50 }
+	}
+	if = {
+		limit = {
+			has_relation_rival = scope_defender
+		}
+		subtract = { value = 200 }
+	}
+}
