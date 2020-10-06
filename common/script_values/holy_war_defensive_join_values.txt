@@ -1,8 +1,14 @@
 ﻿holy_war_defensive_join_value = {
+	save_scope_as = joiner
 	add = {
 		desc = "BASE_VALUE"
 		value = 1
 		format = "BASE_VALUE_FORMAT"
+	}
+	opinion_modifier = {
+		who = scope:joiner
+		opinion_target = scope:defender
+		multiplier = 1
 	}
 	if = {
 		limit = {
