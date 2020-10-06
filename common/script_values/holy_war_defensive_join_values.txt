@@ -25,4 +25,10 @@
 		}
 		subtract = { value = 200 }
 	}
+	if = {
+		limit = {
+			has_trait = zealous
+		}
+		add = { value = 50 }
+	}
 }
