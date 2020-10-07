@@ -216,8 +216,8 @@ window = {
 				name = "war_preview"
 				visible = "[DeclareWarInteractionWindow.HasSelectedCasusBelli]"
 				layoutpolicy_horizontal = expanding
+                layoutpolicy_vertical = shrinking
 				margin_bottom = 15
-
 				using = Animation_Tab_Switch
 
 				## OUTCOME EFFECTS OF WAR
@@ -336,7 +336,8 @@ window = {
 					### Info
 					scrollbox = {
 						layoutpolicy_horizontal = expanding
-						size = { 0 200 }
+                        layoutpolicy_vertical = shrinking
+						size = { 0 100 }
 
 						blockoverride "scrollbox_content"
 						{
@@ -405,7 +406,6 @@ window = {
 					layoutpolicy_vertical = expanding
 					margin_top = 5
 					margin_bottom = 5
-
 					background = {
 						using = Background_Area
 					}
@@ -455,6 +455,27 @@ window = {
 							text = "[DeclareWarInteractionWindow.WriteAdditionalWarningMessage]"
 						}
 					}
+                    hbox = {
+                        size = { 100% 60 }
+                        name = "forced_defenders_bar"
+                        visible = "[Not(IsDataModelEmpty(DeclareWarInteractionWindow.GetDefenders))]"
+				        datamodel = "[DeclareWarInteractionWindow.GetDefenders]"
+				        position = { 0 10 }
+				        item = {
+					        portrait_head_small = {
+					        	datacontext = "[WarAllyItem.GetCharacter]"
+
+					        	tooltip = "[WarAllyItem.GetAllianceReason]"
+
+					        	blockoverride "opinion_box" {}
+
+					        	blockoverride "portrait_button_template_tooltip"
+					        	{
+					        		tooltip = "WAR_DEFENDER_ALLY_TOOLTIP"
+					        	}
+					        }
+				        }
+                    }
 				}
 
 				vbox = {
@@ -524,48 +545,6 @@ window = {
 			}
 		}
 	}
-
-    window = {
-        name = "defender_list_view"
-        parentanchor = top|right
-        position = { -600 10 }
-        size = { 90 100% }
-        using = Window_Background_Subwindow
-        visible = "[Not(IsDataModelEmpty(DeclareWarInteractionWindow.GetDefenders))]"
-        scrollarea = {
-		    size = { 100% 100% }
-
-		    scrollbar_vertical = {
-		    	using = Scrollbar_Vertical
-		    }
-
-		    scrollbarpolicy_horizontal = always_off
-
-		    scrollwidget = {
-		    	fixedgridbox = {
-		    		name = "forced_defenders"
-		    		addrow = 90
-		    		addcolumn = 90
-		    		datamodel = "[DeclareWarInteractionWindow.GetDefenders]"
-		    		position = { 0 10 }
-		    		item = {
-		    			portrait_head_small = {
-		    				datacontext = "[WarAllyItem.GetCharacter]"
-
-	    					tooltip = "[WarAllyItem.GetAllianceReason]"
-
-		    				blockoverride "opinion_box" {}
-
-			    			blockoverride "portrait_button_template_tooltip"
-				    		{
-					    		tooltip = "WAR_DEFENDER_ALLY_TOOLTIP"
-						    }
-					    }
-				    }
-			    }
-		    }
-	    }
-    }
 
 	window = {
 		name = "character_ally_list_subview"
