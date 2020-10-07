@@ -13,40 +13,6 @@ window = {
 
 	using = Animation_ShowHide_Standard
 
-	scrollarea = {
-		size = { 90 100% }
-
-		scrollbar_vertical = {
-			using = Scrollbar_Vertical
-		}
-
-		scrollbarpolicy_horizontal = always_off
-
-		scrollwidget = {
-			fixedgridbox = {
-				name = "forced_defenders"
-				addrow = 90
-				addcolumn = 90
-				datamodel = "[DeclareWarInteractionWindow.GetDefenders]"
-				position = { 0 0 }
-				item = {
-					portrait_head_small = {
-						datacontext = "[WarAllyItem.GetCharacter]"
-
-						tooltip = "[WarAllyItem.GetAllianceReason]"
-
-						blockoverride "opinion_box" {}
-
-						blockoverride "portrait_button_template_tooltip"
-						{
-							tooltip = "WAR_DEFENDER_ALLY_TOOLTIP"
-						}
-					}
-				}
-			}
-		}
-	}
-
 	widget = {
 		name = "tutorial_trigger_declare_war_window"
 		size = { 600 100% }
@@ -558,6 +524,47 @@ window = {
 			}
 		}
 	}
+
+    window = {
+        name = "defender_list_view"
+        parentanchor = top|right
+        position = { -600 10 }
+        size = { 90 100% }
+        using = Window_Background_Subwindow
+        scrollarea = {
+		    size = { 100% 100% }
+
+		    scrollbar_vertical = {
+		    	using = Scrollbar_Vertical
+		    }
+
+		    scrollbarpolicy_horizontal = always_off
+
+		    scrollwidget = {
+		    	fixedgridbox = {
+		    		name = "forced_defenders"
+		    		addrow = 90
+		    		addcolumn = 90
+		    		datamodel = "[DeclareWarInteractionWindow.GetDefenders]"
+		    		position = { 0 10 }
+		    		item = {
+		    			portrait_head_small = {
+		    				datacontext = "[WarAllyItem.GetCharacter]"
+
+	    					tooltip = "[WarAllyItem.GetAllianceReason]"
+
+		    				blockoverride "opinion_box" {}
+
+			    			blockoverride "portrait_button_template_tooltip"
+				    		{
+					    		tooltip = "WAR_DEFENDER_ALLY_TOOLTIP"
+						    }
+					    }
+				    }
+			    }
+		    }
+	    }
+    }
 
 	window = {
 		name = "character_ally_list_subview"
