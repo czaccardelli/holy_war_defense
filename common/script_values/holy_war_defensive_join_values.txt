@@ -1,15 +1,20 @@
 ﻿holy_war_defensive_join_value = {
-	save_scope_as = joiner
 	add = {
 		desc = "BASE_VALUE"
 		value = 1
 		format = "BASE_VALUE_FORMAT"
 	}
-	opinion_modifier = {
-		who = scope:joiner
-		opinion_target = scope:defender
-		multiplier = 1
+	if = {
+		limit = {
+			this.gold > 5000
+		}
+		add = { value = 50 }
 	}
+	#opinion_modifier = {
+	#	who = scope:joiner
+	#	opinion_target = scope:defender
+	#	multiplier = 1
+	#}
 	if = {
 		limit = {
 			OR = {
@@ -27,7 +32,7 @@
 	}
 	if = {
 		limit = {
-			has_relation_rival = scope_defender
+			has_relation_rival = scope:defender
 		}
 		subtract = { value = 200 }
 	}

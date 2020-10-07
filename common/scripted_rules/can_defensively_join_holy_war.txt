@@ -1,5 +1,10 @@
 ﻿can_defensively_join_holy_war = {
 	NOT = { is_at_war_with = scope:defender }
 	is_independent_ruler = yes
-	any_neighboring_top_liege_realm_owner = { this = scope:defender }
+	OR = {
+		any_neighboring_top_liege_realm_owner = { this = scope:defender } #all neighbors of the target realm are eligible
+		scope:attacker = { 
+			any_neighboring_top_liege_realm_owner = { this = root } #all neighbors of the attacker are eligible
+		}
+	}
 }
