@@ -455,27 +455,48 @@ window = {
 							text = "[DeclareWarInteractionWindow.WriteAdditionalWarningMessage]"
 						}
 					}
-                    hbox = {
-                        size = { 100% 60 }
-                        name = "forced_defenders_bar"
+                    scrollarea = {
+						name = "defenders_scrollarea"
                         visible = "[Not(IsDataModelEmpty(DeclareWarInteractionWindow.GetDefenders))]"
-				        datamodel = "[DeclareWarInteractionWindow.GetDefenders]"
-				        position = { 0 10 }
-				        item = {
-					        portrait_head_small = {
-					        	datacontext = "[WarAllyItem.GetCharacter]"
+						size = { 500 120 }
+						scrollbarpolicy_vertical = always_off
+						scrollbarpolicy_horizontal = as_needed
+						scrollbar_horizontal = {
+							using = Scrollbar_Horizontal
+						}
 
-					        	tooltip = "[WarAllyItem.GetAllianceReason]"
+						scrollwidget = {
+							hbox = {
+								using = Scrollbox_Margins
 
-					        	blockoverride "opinion_box" {}
+								fixedgridbox = {
+									datamodel_reuse_widgets = yes
+									maxverticalslots = 1
+									flipdirection = yes
 
-					        	blockoverride "portrait_button_template_tooltip"
-					        	{
-					        		tooltip = "WAR_DEFENDER_ALLY_TOOLTIP"
-					        	}
-					        }
-				        }
-                    }
+									name = "defenders"
+									datamodel = "[DeclareWarInteractionWindow.GetDefenders]"
+									addcolumn = 80
+									addrow = 90
+
+				                    item = {
+					                    portrait_head_small = {
+						                    datacontext = "[WarAllyItem.GetCharacter]"
+
+						                    tooltip = "[WarAllyItem.GetAllianceReason]"
+
+						                    blockoverride "opinion_box" {}
+
+						                    blockoverride "portrait_button_template_tooltip"
+						                    {
+						                    	tooltip = "WAR_DEFENDER_ALLY_TOOLTIP"
+						                    }
+					                    }
+				                    }
+								}
+							}
+						}
+					}
 				}
 
 				vbox = {
