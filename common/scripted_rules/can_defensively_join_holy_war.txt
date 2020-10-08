@@ -14,7 +14,5 @@ can_defensively_join_holy_war = {
 	}
 	join_holy_war_master_trigger = {
 		JOINER = root
-		AGGRESSOR = scope:attacker
-		TARGET = scope:defender
 	}
 }
