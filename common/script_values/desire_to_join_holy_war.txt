@@ -1,4 +1,6 @@
-﻿desire_to_join_holy_war = {
+﻿join_holy_war_modifier_per_opinion_level = 5
+
+desire_to_join_holy_war = {
     add = 10
     if = {
         limit = {
@@ -42,17 +44,185 @@
         }
         subtract = 35
     }
+    ### OPINION MODIFIERS ###
+    ### INTENDED TO STACK FOR EACH LEVEL ###
+    # joiner opinion levels of attacker
     if = {
         limit = {
             scope:joiner = {
                 opinion = {
                     target = scope:attacker
-                    value = 100
+                    value < very_high_negative_opinion
                 }
             }
         }
-        subtract = 1000
+        add = join_holy_war_modifier_per_opinion_level
     }
-
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:attacker
+                    value < high_negative_opinion
+                }
+            }
+        }
+        add = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:attacker
+                    value < medium_negative_opinion
+                }
+            }
+        }
+        add = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:attacker
+                    value < low_negative_opinion
+                }
+            }
+        }
+        add = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:attacker
+                    value > low_positive_opinion
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:attacker
+                    value > medium_positive_opinion
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:attacker
+                    value > high_positive_opinion
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:attacker
+                    value > very_high_positive_opinion
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_opinion_level
+    }
+    # joiner opinion levels of defender
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:defender
+                    value < very_high_negative_opinion
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:defender
+                    value < high_negative_opinion
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:defender
+                    value < medium_negative_opinion
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:defender
+                    value < low_negative_opinion
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:defender
+                    value > low_positive_opinion
+                }
+            }
+        }
+        add = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:defender
+                    value > medium_positive_opinion
+                }
+            }
+        }
+        add = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:defender
+                    value > high_positive_opinion
+                }
+            }
+        }
+        add = join_holy_war_modifier_per_opinion_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:defender
+                    value > very_high_positive_opinion
+                }
+            }
+        }
+        add = join_holy_war_modifier_per_opinion_level
+    }
     
 }
