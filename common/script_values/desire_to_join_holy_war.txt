@@ -1,0 +1,45 @@
+﻿desire_to_join_holy_war = {
+    add = 10
+    if = {
+        limit = {
+            join_holy_war_dear_to_me_trigger = { CHAR1 = scope:joiner CHAR2 = scope:target }
+        }
+        add = 30
+    }
+    if = {
+        limit = {
+            join_holy_war_dear_to_me_trigger = { CHAR1 = scope:joiner CHAR2 = scope:aggressor }
+        }
+        subtract = 20
+    }
+    if = {
+        limit = {
+            scope:joiner = { has_strong_religious_conviction_trigger = yes }
+        }
+        add = 10
+    }
+    if = {
+        limit = {
+            scope:joiner = { has_relation_rival = scope:aggressor }
+        }
+        add = 20
+    }
+    if = {
+        limit = {
+            scope:joiner = { has_relation_nemesis = scope:aggressor }
+        }
+        add = 40
+    }
+    if = {
+        limit = {
+            scope:joiner = { has_relation_rival = scope:target }
+        }
+        subtract = 15
+    }
+    if = {
+        limit = {
+            scope:joiner = { has_relation_nemesis = scope:target }
+        }
+        subtract = 35
+    }
+}

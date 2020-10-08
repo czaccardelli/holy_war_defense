@@ -1,4 +1,9 @@
-﻿can_defensively_join_holy_war = {
+﻿# modifiers to joining are in this instead of holy_war_defensive_join_values because that function
+# doesn't have a way to access the scope of a potential war joiner and evalute their acceptance reasons individually
+# root is the potential war joiner on defender's side ('joiner')
+# scope:defender is the character being targeted
+# scope:attacker is the...uhh....attacker
+can_defensively_join_holy_war = {
 	NOT = { is_at_war_with = scope:defender }
 	is_independent_ruler = yes
 	OR = {
@@ -6,5 +11,10 @@
 		scope:attacker = { 
 			any_neighboring_top_liege_realm_owner = { this = root } #all neighbors of the attacker are eligible
 		}
+	}
+	join_holy_war_master_trigger = {
+		JOINER = root
+		AGGRESSOR = scope:attacker
+		TARGET = scope:defender
 	}
 }

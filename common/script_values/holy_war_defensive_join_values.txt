@@ -1,45 +1,9 @@
-﻿holy_war_defensive_join_value = {
+﻿# root is attacker -- NOT the possible defensive war joiner as the official scripts say!
+# scope:defender is the character being targeted
+holy_war_defensive_join_value = {
 	add = {
 		desc = "BASE_VALUE"
-		value = 1
+		value = 100
 		format = "BASE_VALUE_FORMAT"
-	}
-	if = {
-		limit = {
-			this.gold > 5000
-		}
-		add = { value = 50 }
-	}
-	#opinion_modifier = {
-	#	who = scope:joiner
-	#	opinion_target = scope:defender
-	#	multiplier = 1
-	#}
-	if = {
-		limit = {
-			OR = {
-				is_spouse_of = scope:defender
-				is_close_or_extended_family_of = scope:defender
-				has_relation_lover = scope:defender
-				has_relation_friend = scope:defender
-				has_secret_relation_lover = scope:defender
-				has_relation_soulmate = scope:defender
-				has_relation_best_friend = scope:defender
-				is_parent_of = scope:defender
-			}
-		}
-		add = { value = 50 }
-	}
-	if = {
-		limit = {
-			has_relation_rival = scope:defender
-		}
-		subtract = { value = 200 }
-	}
-	if = {
-		limit = {
-			has_trait = zealous
-		}
-		add = { value = 50 }
 	}
 }

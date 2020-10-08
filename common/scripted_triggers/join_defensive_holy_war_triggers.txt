@@ -1,0 +1,21 @@
+﻿join_holy_war_master_trigger = {
+	$JOINER$ = { save_temporary_scope_as = joiner }
+	$AGGRESSOR$ = { save_temporary_scope_as = aggressor }
+	$TARGET$ = { save_temporary_scope_as = target }
+	desire_to_join_holy_war > 0
+}
+
+join_holy_war_dear_to_me_trigger = {
+	OR = {
+        $CHAR1$ = {
+            is_spouse_of = $CHAR2$
+		    is_close_or_extended_family_of = $CHAR2$
+		    has_relation_lover = $CHAR2$
+		    has_relation_friend = $CHAR2$
+		    has_secret_relation_lover = $CHAR2$
+		    has_relation_soulmate = $CHAR2$
+		    has_relation_best_friend = $CHAR2$
+		    is_parent_of = $CHAR2$
+        }
+	}		
+}
