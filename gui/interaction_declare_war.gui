@@ -2,7 +2,6 @@
 #################### DECLARE WAR "####################
 ######################################################
 
-# These ~50 first lines are a placeholder way to show who will defend
 window = {
 	name = "declare_war_window"
 	datacontext = "[DeclareWarInteractionWindow.GetCharacterInteractionConfirmationWindow]"
