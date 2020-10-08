@@ -2,13 +2,13 @@
     add = 10
     if = {
         limit = {
-            join_holy_war_dear_to_me_trigger = { CHAR1 = scope:joiner CHAR2 = scope:defender }
+            scope:joiner = { join_holy_war_dear_to_me_trigger = { CHAR = scope:defender } }
         }
         add = 30
     }
     if = {
         limit = {
-            join_holy_war_dear_to_me_trigger = { CHAR1 = scope:joiner CHAR2 = scope:attacker }
+            scope:joiner = { join_holy_war_dear_to_me_trigger = { CHAR = scope:attacker } }
         }
         subtract = 20
     }
