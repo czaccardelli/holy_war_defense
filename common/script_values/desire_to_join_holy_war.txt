@@ -42,4 +42,17 @@
         }
         subtract = 35
     }
+    if = {
+        limit = {
+            scope:joiner = {
+                opinion = {
+                    target = scope:attacker
+                    value = 100
+                }
+            }
+        }
+        subtract = 1000
+    }
+
+    
 }
