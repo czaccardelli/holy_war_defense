@@ -1,7 +1,5 @@
 ﻿join_holy_war_master_trigger = {
 	$JOINER$ = { save_temporary_scope_as = joiner }
-	$AGGRESSOR$ = { save_temporary_scope_as = aggressor }
-	$TARGET$ = { save_temporary_scope_as = target }
 	desire_to_join_holy_war > 0
 }
 

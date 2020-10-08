@@ -2,13 +2,13 @@
     add = 10
     if = {
         limit = {
-            join_holy_war_dear_to_me_trigger = { CHAR1 = scope:joiner CHAR2 = scope:target }
+            join_holy_war_dear_to_me_trigger = { CHAR1 = scope:joiner CHAR2 = scope:defender }
         }
         add = 30
     }
     if = {
         limit = {
-            join_holy_war_dear_to_me_trigger = { CHAR1 = scope:joiner CHAR2 = scope:aggressor }
+            join_holy_war_dear_to_me_trigger = { CHAR1 = scope:joiner CHAR2 = scope:attacker }
         }
         subtract = 20
     }
@@ -20,25 +20,25 @@
     }
     if = {
         limit = {
-            scope:joiner = { has_relation_rival = scope:aggressor }
+            scope:joiner = { has_relation_rival = scope:attacker }
         }
         add = 20
     }
     if = {
         limit = {
-            scope:joiner = { has_relation_nemesis = scope:aggressor }
+            scope:joiner = { has_relation_nemesis = scope:attacker }
         }
         add = 40
     }
     if = {
         limit = {
-            scope:joiner = { has_relation_rival = scope:target }
+            scope:joiner = { has_relation_rival = scope:defender }
         }
         subtract = 15
     }
     if = {
         limit = {
-            scope:joiner = { has_relation_nemesis = scope:target }
+            scope:joiner = { has_relation_nemesis = scope:defender }
         }
         subtract = 35
     }
