@@ -13,5 +13,5 @@ join_holy_war_dear_to_me_trigger = {
 		    has_relation_soulmate = $CHAR$
 		    has_relation_best_friend = $CHAR$
 		    is_parent_of = $CHAR$
-        }
-	}
+    }
+}

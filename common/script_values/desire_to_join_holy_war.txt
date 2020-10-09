@@ -1,6 +1,8 @@
 ﻿join_holy_war_modifier_per_opinion_level = 5
+join_holy_war_distance_multiplier = 1
 
 desire_to_join_holy_war = {
+### RELATIONS MODIFIERS ###
     add = 10
     if = {
         limit = {
@@ -44,9 +46,12 @@ desire_to_join_holy_war = {
         }
         subtract = 35
     }
-    ### OPINION MODIFIERS ###
-    ### INTENDED TO STACK FOR EACH LEVEL ###
-    # joiner opinion levels of attacker
+### DISTANCE MODIFIERS ###
+
+
+### OPINION MODIFIERS ###
+### INTENDED TO STACK FOR EACH LEVEL ###
+# joiner opinion levels of attacker
     if = {
         limit = {
             scope:joiner = {
@@ -135,7 +140,7 @@ desire_to_join_holy_war = {
         }
         subtract = join_holy_war_modifier_per_opinion_level
     }
-    # joiner opinion levels of defender
+# joiner opinion levels of defender
     if = {
         limit = {
             scope:joiner = {
