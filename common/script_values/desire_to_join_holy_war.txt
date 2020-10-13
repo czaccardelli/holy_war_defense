@@ -1,5 +1,5 @@
 ﻿join_holy_war_modifier_per_opinion_level = 5
-join_holy_war_distance_multiplier = 1
+join_holy_war_modifier_per_distance_level = 5
 
 desire_to_join_holy_war = {
 ### RELATIONS MODIFIERS ###
@@ -47,15 +47,39 @@ desire_to_join_holy_war = {
         subtract = 35
     }
 ### DISTANCE MODIFIERS ###
+### INTENDED TO STACK WITH EACH DISTANCE LEVEL ###
     if = {
         limit = {
             scope:joiner = {
-                realm_to_tile_distance_squared = {
-                    title = 
+                join_holy_war_within_range_trigger = {
+                    RANGE = holy_war_max_range
                 }
             }
         }
+        subtract = join_holy_war_modifier_per_distance_level
     }
+    if = {
+        limit = {
+            scope:joiner = {
+                join_holy_war_within_range_trigger = {
+                    RANGE = holy_war_medium_range
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_distance_level
+    }
+    if = {
+        limit = {
+            scope:joiner = {
+                join_holy_war_within_range_trigger = {
+                    RANGE = holy_war_close_range
+                }
+            }
+        }
+        subtract = join_holy_war_modifier_per_distance_level
+    }
+
+
 
 ### OPINION MODIFIERS ###
 ### INTENDED TO STACK FOR EACH LEVEL ###
