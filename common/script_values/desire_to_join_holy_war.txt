@@ -78,8 +78,13 @@ desire_to_join_holy_war = {
         }
         subtract = join_holy_war_modifier_per_distance_level
     }
-
-
+### GAME STATE MODIFIERS ###
+    scope:joiner = {
+        # subtract 20 from desire to join for each war the potential joiner is already in
+        every_character_war = {
+            subtract = 20
+        }
+    }
 
 ### OPINION MODIFIERS ###
 ### INTENDED TO STACK FOR EACH LEVEL ###
