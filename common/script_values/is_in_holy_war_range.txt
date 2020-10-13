@@ -1,5 +1,3 @@
 ﻿holy_war_max_range = 105625 #325 map pixels
-
-is_in_holy_war_range = {
-    }
-}
+holy_war_medium_range = 44100 #210 map pixels
+holy_war_close_range = 10000 #100 map pixels
