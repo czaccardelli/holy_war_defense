@@ -1,6 +1,12 @@
 ﻿join_holy_war_master_trigger = {
 	$JOINER$ = { save_temporary_scope_as = joiner }
-	desire_to_join_holy_war > 0
+	scope:joiner = {
+		NOT = { is_at_war_with = scope:defender }
+		NOT = { is_allied_to = scope:attacker }
+		is_independent_ruler = yes
+		is_landed = yes
+		desire_to_join_holy_war > 0
+	}
 }
 
 join_holy_war_dear_to_me_trigger = {
@@ -18,6 +24,7 @@ join_holy_war_dear_to_me_trigger = {
 
 join_holy_war_within_range_trigger = {
 	scope:defender = {
+		$JOINER$ = { save_temporary_scope_as = joiner }
 		# drill down to the county level of the defender's territory
 		any_realm_county = {
 			# now that we've drilled down to the county level of the defender, see if any of the holders of those counties
@@ -40,11 +47,8 @@ join_holy_war_within_range_trigger = {
 					holder.top_liege = scope:attacker
 				}
 			}
-			holder = {
-				any_neighboring_and_across_water_top_liege = { this = scope:attacker }
-			}
-			# finally, see if the joiner (aka 'root') is within range of at least one coastal or neighboring county
-			root = {
+			# finally, see if the joiner is within range of at least one coastal or neighboring county
+			scope:joiner = {
 				realm_to_title_distance_squared = {
 					title = prev
 					value <= $RANGE$

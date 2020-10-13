@@ -1,0 +1,87 @@
+﻿holy_war_defense_strength_value = {
+    every_independent_ruler = {
+        limit = {
+            AND = {
+                faith = scope:defender.faith
+                join_holy_war_master_trigger = {
+                    JOINER = this
+                }
+            }
+        }
+        add = max_military_strength
+    }
+    min = 1
+}
+
+holy_war_attacker_and_allies_strength_value = {
+    value = {
+        scope:attacker = {
+            add = max_military_strength
+            every_ally = {
+                add = max_military_strength
+            }
+        }
+        min = 1
+    }
+}
+
+compare_holy_war_defender_to_attacker_sides_value = {
+    value = {
+        add = holy_war_defense_strength_value
+        divide = holy_war_attacker_and_allies_strength_value
+    }
+}
+
+get_ai_score_mult_value_for_holy_war = {
+    if = {
+        limit = {
+            compare_holy_war_defender_to_attacker_sides_value > 2
+        }
+        value = 0 # hopelessly weaker, so don't even try to start this war
+    }
+    else_if = {
+        limit = {
+            compare_holy_war_defender_to_attacker_sides_value > 1.5
+        }
+        value = 0.1 # really shouldn't do this
+    }
+    else_if = {
+        limit = {
+            compare_holy_war_defender_to_attacker_sides_value > 1.2
+        }
+                value = 0.5 # winnable, but it'll be tough
+    }
+    else_if = {
+        limit = {
+            compare_holy_war_defender_to_attacker_sides_value > 1.1
+        }
+        value = 0.8 # close, but there might be better war options
+    }
+    else_if = {
+        limit = {
+            compare_holy_war_defender_to_attacker_sides_value > 1
+        }
+        value = 1 # give it a try
+    }
+    else_if = {
+        limit = {
+            compare_holy_war_defender_to_attacker_sides_value > 0.8
+        }
+        value = 1.5 # they're weak, go for it
+    }
+    else_if = {
+        limit = {
+            compare_holy_war_defender_to_attacker_sides_value > 0.6
+        }
+        value = 3 # almost certainly a win
+    }
+    else_if = {
+        limit = {
+            compare_holy_war_defender_to_attacker_sides_value > 0.4
+        }
+        value = 10 # foregone conclusion
+    }
+    else = {
+        value = 20 # just walk in and take it
+    }
+}

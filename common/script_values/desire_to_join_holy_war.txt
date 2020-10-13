@@ -51,8 +51,22 @@ desire_to_join_holy_war = {
     if = {
         limit = {
             scope:joiner = {
+                NOT = {
+                    join_holy_war_within_range_trigger = {
+                        RANGE = holy_war_max_range
+                        JOINER = scope:joiner
+                    }
+                }
+            }
+        }
+        subtract = 1000 #impossible to join outside of max range
+    }
+    if = {
+        limit = {
+            scope:joiner = {
                 join_holy_war_within_range_trigger = {
                     RANGE = holy_war_max_range
+                    JOINER = scope:joiner
                 }
             }
         }
@@ -63,6 +77,7 @@ desire_to_join_holy_war = {
             scope:joiner = {
                 join_holy_war_within_range_trigger = {
                     RANGE = holy_war_medium_range
+                    JOINER = scope:joiner
                 }
             }
         }
@@ -73,6 +88,7 @@ desire_to_join_holy_war = {
             scope:joiner = {
                 join_holy_war_within_range_trigger = {
                     RANGE = holy_war_close_range
+                    JOINER = scope:joiner
                 }
             }
         }
