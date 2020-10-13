@@ -47,7 +47,15 @@ desire_to_join_holy_war = {
         subtract = 35
     }
 ### DISTANCE MODIFIERS ###
-
+    if = {
+        limit = {
+            scope:joiner = {
+                realm_to_tile_distance_squared = {
+                    title = 
+                }
+            }
+        }
+    }
 
 ### OPINION MODIFIERS ###
 ### INTENDED TO STACK FOR EACH LEVEL ###

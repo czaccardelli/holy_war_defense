@@ -7,40 +7,8 @@ can_defensively_join_holy_war = {
 	NOT = { is_at_war_with = scope:defender }
 	is_independent_ruler = yes
 	is_landed = yes
-	scope:defender = {
-		# drill down to the county level of the defender's territory
-		any_realm_county = {
-			# now that we've drilled down to the county level of the defender, see if any of the holders of those counties
-			# neighbor or are across a sea zone to the attacker
-			# we need to do it this way because the reverse wouldn't allow us to be drilled down to the county level of the defender
-			# and large blobs would pull in more possible defenders due to the distance not being localized
-			# to only those counties that, for example, a count would be able to launch a holy war from
-			OR = {
-				AND = {
-					# only use coastal counties that aren't too far from the attacker to simulate those counties that are holy-warrable
-					is_coastal_county = yes
-					scope:attacker = {
-						realm_to_title_distance_squared = {
-							title = prev
-							value <= 10000
-						}
-					}
-				}
-				any_neighboring_county = {
-					holder.top_liege = scope:attacker
-				}
-			}
-			holder = {
-				any_neighboring_and_across_water_top_liege = { this = scope:attacker }
-			}
-			# finally, see if the joiner (aka 'root') is within range of at least one coastal or neighboring county
-			root = {
-				realm_to_title_distance_squared = {
-					title = prev
-					value <= holy_war_max_range
-				}
-			}
-		}
+	join_holy_war_within_range_trigger = {
+		RANGE = holy_war_max_range
 	}
 	# check all reasons for joining or abstaining in master trigger
 	join_holy_war_master_trigger = {
