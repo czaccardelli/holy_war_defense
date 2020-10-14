@@ -1,3 +1,5 @@
-﻿holy_war_max_range = 105625 #325 map pixels
-holy_war_medium_range = 44100 #210 map pixels
-holy_war_close_range = 10000 #100 map pixels
+﻿holy_war_max_range = 202500 # 450 map pixels
+holy_war_long_range = 105625 # 325 map pixels
+holy_war_medium_range = 44100 # 210 map pixels
+holy_war_close_range = 10000 # 100 map pixels
+holy_war_coastal_join_range = 24025 # 155 map pixels

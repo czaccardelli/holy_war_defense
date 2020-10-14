@@ -36,10 +36,10 @@ join_holy_war_within_range_trigger = {
 				AND = {
 					# only use coastal counties that aren't too far from the attacker to simulate those counties that are holy-warrable
 					is_coastal_county = yes
-					scope:attacker = {
+					scope:joiner = {
 						realm_to_title_distance_squared = {
 							title = prev
-							value <= 10000
+							value <= holy_war_coastal_join_range
 						}
 					}
 				}
