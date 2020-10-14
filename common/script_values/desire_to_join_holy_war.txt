@@ -107,6 +107,18 @@ desire_to_join_holy_war = {
             subtract = 20
         }
     }
+    if = {
+        limit = {
+            scope:attacker = {
+                has_cb_on = {
+                    target = scope:joiner
+                    cb = minor_religious_war
+                }
+            }
+        }
+        add = 50 # defend now because we're gonna be the next target!
+    }
+
 
 ### OPINION MODIFIERS ###
 ### INTENDED TO STACK FOR EACH LEVEL ###
