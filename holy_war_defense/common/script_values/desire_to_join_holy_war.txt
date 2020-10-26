@@ -116,7 +116,7 @@ desire_to_join_holy_war = {
                 }
             }
         }
-        add = 50 # defend now because we're gonna be the next target!
+        add = 100 # defend now because we're gonna be the next target!
     }
 
 
