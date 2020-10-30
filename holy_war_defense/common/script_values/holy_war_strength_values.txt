@@ -32,7 +32,7 @@ compare_holy_war_defender_to_attacker_sides_value = {
     }
 }
 
-get_ai_score_mult_value_for_holy_war = {
+holy_war_ai_score_mult_value = {
     if = {
         limit = {
             compare_holy_war_defender_to_attacker_sides_value > 2
