@@ -598,7 +598,7 @@ window = {
 				layoutpolicy_horizontal = expanding
 				margin_left = 20
 
-				dropDown_sort = {
+				dropDown_sort_characterlist = {
 					datamodel = "[AllyListSubview.GetSortItems]"
 					onselectionchanged = "[AllyListSubview.SetCurrentFilterFromIndex]"
 					selectedindex = "[AllyListSubview.GetCurrentFilterIndex]"
