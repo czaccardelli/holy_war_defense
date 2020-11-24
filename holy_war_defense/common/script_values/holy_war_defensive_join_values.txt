@@ -1,5 +1,9 @@
-﻿# root is attacker -- NOT the possible defensive war joiner as the official scripts say!
-# scope:defender is the character being targeted
+﻿# Referenced in code; don't delete this
+# When a holy war is declared, everyone of the defender's faith that passes can_defensively_join_holy_war will be scored using this
+# Scores above 0 will join
+# Scope is the potential joiner
+# scope:attacker is the attacker
+# scope:defender is the defender
 holy_war_defensive_join_value = {
 	add = {
 		desc = "BASE_VALUE"
