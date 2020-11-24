@@ -6,5 +6,5 @@ tags={
 	"Character Interactions"
 }
 name="Neighbors Defend Against Holy Wars"
-supported_version="1.1.3"
+supported_version="1.2.1"
 path="mod/holy_war_defense"
